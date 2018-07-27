@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.gyymz1993'
+group = 'com.github.gyymz1993'
 
 
 android {
@@ -37,16 +37,13 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.4.0'
     compile 'com.squareup.retrofit2:converter-scalars:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
-
-    /*Rx引入包*/
-    compile 'io.reactivex:rxandroid:1.2.1'
-    compile 'com.alibaba:fastjson:1.2.29'
-    compile 'io.reactivex.rxjava2:rxjava:2.1.12'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
-    /**
-     *
-     */
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.3.0'
+    /*Rx引入包*/
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.12'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.2'
+
+    compile 'com.alibaba:fastjson:1.2.29'
 
 }

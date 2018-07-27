@@ -8,9 +8,9 @@ import retrofit2.HttpException;
 
 /**
  * 网络结果处理类, 此类会判断网络错误与业务错误.
- *
- * <P>
- *     以及重置加载状态.
+ * <p>
+ * <p>
+ * 以及重置加载状态.
  */
 public class ResponseHandler<T> {
 
@@ -36,9 +36,7 @@ public class ResponseHandler<T> {
     public void onError(Throwable e) {
         resetLoadingStatus();
         e.printStackTrace();
-        if (!handler.error(e)) {
-            handleException(e);
-        }
+        handler.error(e);
         release();
     }
 
@@ -96,8 +94,9 @@ public class ResponseHandler<T> {
 
         /**
          * 请求成功但业务失败的情况下会调用此函数.
+         *
          * @return 是否需要自行处理业务错误.
-         * <P>
+         * <p>
          * true - 需要, 父类不会处理错误
          * </P>
          * false - 不需要, 交由父类处理
@@ -106,8 +105,9 @@ public class ResponseHandler<T> {
 
         /**
          * 请求失败的情况下会调用此函数
+         *
          * @return 是否需要自行处理系统错误.
-         * <P>
+         * <p>
          * true - 需要, 父类不会处理错误
          * </P>
          * false - 不需要, 交由父类处理
@@ -119,8 +119,11 @@ public class ResponseHandler<T> {
 
     public interface IBaseData {
         boolean isSuccess();
+
         int status();
+
         Object data();
+
         String msg();
     }
 }

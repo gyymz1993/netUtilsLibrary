@@ -1,5 +1,6 @@
 package com.itbour.subscriber;
 
+import android.content.res.Configuration;
 import android.text.TextUtils;
 
 import com.google.gson.FieldNamingPolicy;
@@ -41,6 +42,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -234,11 +236,7 @@ public class ApiFactory {
 
         clientBuilder.readTimeout(timeout, TimeUnit.SECONDS)
                 .writeTimeout(timeout, TimeUnit.SECONDS).connectTimeout(timeout, TimeUnit.SECONDS);
-
-//        if (Configuration.isShowNetworkParams()) {
-//            clientBuilder.addInterceptor(new HttpLoggingInterceptor());
-//        }
-
+        clientBuilder.addInterceptor(new HttpLoggingInterceptor());
         //添加拦截器 将请求数据加密
         clientBuilder.addInterceptor(new Interceptor() {
             @Override
